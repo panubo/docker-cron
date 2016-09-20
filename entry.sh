@@ -17,9 +17,7 @@ set -e
 [ ! -f "/crontab" ] && echo "Error: crontab must be mounted at /crontab" && exit 128 || true
 
 # Create the crontab
-cat /crontab > /var/spool/cron/crontabs/cron
-chown cron:crontab /var/spool/cron/crontabs/cron
-chmod 600 /var/spool/cron/crontabs/cron
+crontab -u cron /crontab
 
 # Configure Mail Sending
 cat > /etc/ssmtp/ssmtp.conf << EOF
