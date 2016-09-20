@@ -29,7 +29,7 @@ hostname=${HOSTNAME}
 EOF
 
 # if username / pass set
-if [ -z "${SMTP_USER}" ] && [ -z "${SMTP_PASS}" ]; then
+if [ -n "${SMTP_USER}" ] && [ -n "${SMTP_PASS}" ]; then
     {
         echo "UseSTARTTLS=Yes"
         echo "AuthUser=${SMTP_USER}"
