@@ -4,11 +4,11 @@ Cron in a container.
 
 ## Configuration
 
-Mount the crontab at `/crontab`. NB The container will need to be restarted if the crontab is changed.
+Mount the crontab at `/crontab`. NB The container will need to be restarted if the crontab is changed or exec `/reload.sh`.
 
-Configure timezone with `TZ` environment variable. eg: `-e TZ=Australia/Sydney`
+Configure timezone with `TZ` environment variable. eg: `-e TZ=Australia/Sydney`.
 
-For linking to SMTP container
+For linking to SMTP container:
 
 - `SMTP_HOST`
 - `SMTP_PORT`
