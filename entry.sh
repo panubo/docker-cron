@@ -41,4 +41,4 @@ cron:${EMAIL_FROM}:${SMTP_HOST}:${SMTP_PORT}
 EOF
 
 # Start supervisord
-exec $@
+exec "$@"
