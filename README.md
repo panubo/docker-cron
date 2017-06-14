@@ -8,14 +8,14 @@ Mount the crontab at `/crontab`. NB The container will need to be restarted if t
 
 Configure timezone with `TZ` environment variable. eg: `-e TZ=Australia/Sydney`.
 
-For linking to SMTP container:
+For linking to SMTP container (optional):
 
 - `SMTP_HOST`
 - `SMTP_PORT`
 - `SMTP_USER`
 - `SMTP_PASS`
 
-Cron Email settings:
+Cron Email settings (optional):
 
  - `EMAIL_FROM`
  - `EMAIL_TO`
@@ -26,3 +26,7 @@ Cron Email settings:
 Example with timezone set:
 
 `docker run --rm -t -i -v $(pwd)/crontab:/crontab -e TZ=Australia/Sydney panubo/cron`
+
+## Status
+
+Production ready.
