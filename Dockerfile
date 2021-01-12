@@ -32,4 +32,4 @@ COPY *.sh /
 RUN for item in /*.sh; do ln -s ${item} /${item%.*}; chmod +x ${item}; done
 
 ENTRYPOINT ["/entry.sh"]
-CMD ["/usr/local/bin/go-crond"]
+CMD ["/usr/local/bin/go-crond", "--allow-unprivileged", "/crontab"]
