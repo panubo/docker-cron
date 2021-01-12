@@ -28,7 +28,7 @@ Cron Email settings (optional):
 
 Example with timezone set:
 
-`docker run --rm -t -i -v $(pwd)/crontab:/crontab -e TZ=Australia/Sydney panubo/cron`
+`docker run --rm -t -i -v $(pwd)/crontab:/crontab -e TZ=Australia/Sydney panubo/cron:2.0.0`
 
 ## History
 
