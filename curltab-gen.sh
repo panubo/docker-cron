@@ -8,4 +8,4 @@ if [[ -e "/curltab.env" ]]; then
   CURLTAB_OPTS="${CURLTAB_OPTS} -e /curltab.env"
 fi
 
-/opt/bin/curltab gen ${CURLTAB_OPTS} | tee /crontab
+curltab gen ${CURLTAB_OPTS} | tee /crontab

@@ -4,6 +4,8 @@
 set -e
 [ "${DEBUG:-false}" == 'true' ] && set -x
 
+echo ">> Running entry.sh"
+
 # Defaults
 : ${HOSTNAME:=$(hostname)}
 : ${EMAIL_FROM:='cron'}

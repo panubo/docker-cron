@@ -1,20 +1,11 @@
 NAME = cron
-TAG = 'latest'
+TAG = latest
 IMAGE_NAME := panubo/$(NAME)
 
-.PHONY: help bash run build push
+.PHONY: help build push clean
 
 help:
 	@printf "$$(grep -hE '^\S+:.*##' $(MAKEFILE_LIST) | sed -e 's/:.*##\s*/:/' -e 's/^\(.\+\):\(.*\)/\\x1b[36m\1\\x1b[m:\2/' | column -c2 -t -s :)\n"
-
-bash: empty ## Runs a bash shell in the docker image
-	docker run --rm -it -v $(PWD)/empty:/crontab $(IMAGE_NAME):latest bash
-
-empty:
-	touch empty
-
-run: empty ## Runs the docker image in a test mode
-	docker run --name cron --rm -it -v $(PWD)/empty:/crontab $(IMAGE_NAME):latest
 
 build: ## Builds docker image latest
 	docker build --pull -t $(IMAGE_NAME):latest .
@@ -25,3 +16,19 @@ push: ## Pushes the docker image to hub.docker.com
 	docker tag $(IMAGE_NAME):$(TAG) $(IMAGE_NAME):latest
 	docker push $(IMAGE_NAME):$(TAG)
 	docker push $(IMAGE_NAME):latest
+
+clean: ## Remove built images
+	docker rmi $(IMAGE_NAME):latest || true
+	docker rmi $(IMAGE_NAME):$(TAG) || true
+
+# Dev targets
+.PHONY: bash run 
+
+bash: empty ## Runs a bash shell in the docker image
+	docker run --rm -it -v $(PWD)/empty:/crontab $(IMAGE_NAME):latest bash
+
+empty:
+	touch empty
+
+run: empty ## Runs the docker image in a test mode
+	docker run --name cron --rm -it -v $(PWD)/empty:/crontab $(IMAGE_NAME):latest
