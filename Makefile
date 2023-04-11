@@ -32,3 +32,6 @@ empty:
 
 run: empty ## Runs the docker image in a test mode
 	docker run --name cron --rm -it -v $(PWD)/empty:/crontab $(IMAGE_NAME):latest
+
+_ci_test:
+	true

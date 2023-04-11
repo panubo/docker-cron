@@ -2,6 +2,8 @@
 
 Cron in a container.
 
+This image is available on quay.io `quay.io/panubo/cron` and AWS ECR Public `public.ecr.aws/panubo/cron`.
+
 ## Configuration
 
 Mount the crontab at `/crontab`. The cron jobs will be run with the underprivileged `cron` user.
@@ -28,7 +30,7 @@ Cron Email settings (optional):
 
 Example with timezone set:
 
-`docker run --rm -t -i -v $(pwd)/crontab:/crontab -e TZ=Australia/Sydney panubo/cron:2.0.0`
+`docker run --rm -t -i -v $(pwd)/crontab:/crontab -e TZ=Australia/Sydney quay.io/panubo/cron:2.0.0`
 
 ## History
 
