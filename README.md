@@ -8,7 +8,7 @@ This image is available on quay.io `quay.io/panubo/cron` and AWS ECR Public `pub
 
 Mount the crontab at `/crontab`. The cron jobs will be run with the underprivileged `cron` user.
 
-NB. The container will need to be restarted if the crontab is changed or exec `/reload.sh`.
+N.B. The container will need to be restarted if the crontab is changed or exec `/reload.sh`.
 
 Configure timezone with `TZ` environment variable. eg: `-e TZ=Australia/Sydney`
 or use `CRON_TZ` for each crontab line.
