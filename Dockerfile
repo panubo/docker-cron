@@ -1,4 +1,4 @@
-FROM alpine:3.17
+FROM alpine:3.19
 
 RUN set -x \
   && apk --no-cache add bash curl libc6-compat logrotate ssmtp \
@@ -6,9 +6,9 @@ RUN set -x \
 
 # Install go-crond
 RUN set -x \
-  && GO_CROND_VERSION=23.2.0 \
-  && GO_CROND_CHECKSUM_X86_64=24a37df2e0f7a3c77d14e31cb19c1951573bfd9307152063f7a3f32666085f41 \
-  && GO_CROND_CHECKSUM_AARCH64=5b4682a9795e27632aab00b87a2590a86672ce600bd4e5a9da733beabc80bc74 \
+  && GO_CROND_VERSION=23.12.0 \
+  && GO_CROND_CHECKSUM_X86_64=15f3f4cd76d6fbe397eec0ddd3f3f8589d7a98da57e6f5ff54852dec6a49badd \
+  && GO_CROND_CHECKSUM_AARCH64=361d5ff5601e5779339be3d0bbdcb878642af6b65feb69b5d3182b72e9cd1c35 \
   && if [ "$(uname -m)" = "x86_64" ] ; then \
         GO_CROND_CHECKSUM="${GO_CROND_CHECKSUM_X86_64}"; \
         GO_CROND_ARCH="amd64"; \
