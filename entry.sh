@@ -7,13 +7,13 @@ set -e
 echo ">> Running entry.sh"
 
 # Defaults
-: ${HOSTNAME:=$(hostname)}
-: ${EMAIL_FROM:='cron'}
-: ${EMAIL_TO:='cron'}
-: ${SMTP_HOST:='localhost'}
-: ${SMTP_PORT:='25'}
-: ${SMTP_USER:=''}
-: ${SMTP_PASS:=''}
+: "${HOSTNAME:=$(hostname)}"
+: "${EMAIL_FROM:='cron'}"
+: "${EMAIL_TO:='cron'}"
+: "${SMTP_HOST:='localhost'}"
+: "${SMTP_PORT:='25'}"
+: "${SMTP_USER:=''}"
+: "${SMTP_PASS:=''}"
 
 # Config checks
 [ ! -f "/crontab" ] && echo "Error: crontab must be mounted at /crontab" && exit 128 || true
