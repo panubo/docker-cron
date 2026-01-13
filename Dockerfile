@@ -1,4 +1,4 @@
-FROM alpine:3.19
+FROM alpine:3.23
 
 RUN set -x \
   && apk --no-cache add bash curl libc6-compat logrotate ssmtp \
