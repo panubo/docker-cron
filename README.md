@@ -1,6 +1,8 @@
 # Docker Cron
 
 [![build and push on main and tags](https://github.com/panubo/docker-cron/actions/workflows/build-push.yml/badge.svg)](https://github.com/panubo/docker-cron/actions/workflows/build-push.yml)
+[![release](https://img.shields.io/github/v/release/panubo/docker-cron)](https://github.com/panubo/docker-cron/releases/latest)
+[![license](https://img.shields.io/github/license/panubo/docker-cron)](LICENSE)
 
 Cron in a container, based on Alpine Linux and [go-crond](https://github.com/webdevops/go-crond).
 
@@ -42,7 +44,7 @@ For a more persistent setup, use `docker-compose`:
 ```yaml
 services:
   cron:
-    image: quay.io/panubo/cron
+    image: quay.io/panubo/cron:5.0.0
     container_name: my-cron-service
     restart: unless-stopped
     volumes:
